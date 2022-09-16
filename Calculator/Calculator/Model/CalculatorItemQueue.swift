@@ -1,6 +1,6 @@
 import Foundation
 
-struct CalculatorItemQueue<Element>: CalculatorItem {
+struct CalculatorItemQueue<Element> {
     private var list: [Element] = []
     
     var count: Int {
