@@ -5,8 +5,10 @@ enum ExpressionParser {
         var operandsQueue = CalculatorItemQueue<Double>()
         var operatorsQueue = CalculatorItemQueue<Operator>()
         
-        let operands = componentsByOperators(from: input).compactMap { Double($0) }
-        let operators = componentsByOperators(from: input).compactMap { Double($0) == nil ? $0 : nil }
+        let splitedInput = componentsByOperators(from: input)
+        
+        let operands = splitedInput.compactMap { Double($0) }
+        let operators = splitedInput.compactMap { Double($0) == nil ? $0 : nil }
         
         operands.forEach {
             operandsQueue.enqueue(Double($0))
