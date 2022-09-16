@@ -10,9 +10,10 @@ struct Formula {
         }
 
         while operands.isEmpty == false || operators.isEmpty == false {
-            if let rhs = operands.dequeue(), let `operator` = operators.dequeue()?.rawValue,
+            if let rhs = operands.dequeue(),
+               let `operator` = operators.dequeue()?.rawValue,
                let calculatedValue = try Operator(rawValue: `operator`)?.calculate(lhs: result, rhs: rhs) {
-                result = calculatedValue    
+                result = calculatedValue
             } else {
                 throw CalculateError.impossibleCalculate
             }
